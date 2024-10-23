@@ -1,0 +1,58 @@
+{% extends 'partials/base.html' %}
+{% block title %}Products Page{% endblock %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include 'partials/topside.html' %}
+   <!-- Search Form -->
+   <!-- <form method="get" action="{% url 'dashboard-products' %}">
+    <input type="text" name="search" placeholder="Search products">
+    <button type="submit">Search</button>
+   </form> -->
+
+<!-- Product List -->
+
+    <center><h3>Canteen Item</h3></center>
+<div class="row my-4">
+    <div class="col-md-4">
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+        
+    </div>
+    <div class="col-md-8">
+        <table class="table bg-white">
+            <thead class="bg-info text-danger">
+                
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Comments</th>
+                    <th scope="col">Supplier</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in food_products %}
+                <tr>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.category }}</td>
+                    <td>{{ product.quantity }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.comments }}</td>
+                    <td>{{ product.Supplier }}</td>
+                    
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

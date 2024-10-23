@@ -1,0 +1,7 @@
+<h2>Orders and Associated Users</h2>
+
+<ul>
+    {% for order in orders_with_users %}
+        <li>{{ order }} - Ordered by: {{ order.customer.username }}</li>
+    {% endfor %}
+</ul

@@ -1,0 +1,24 @@
+{% extends 'partials/base.html' %}
+{% block title %}Products by Category{% endblock %}
+
+{% block content %}
+  {% include 'partials/topside.html' %}
+
+  <div class="container mt-4">
+    <h2 class="mb-4 text-center">Products in {{ category_name }} Category</h2>
+    <div class="row">
+      {% for product in category_products %}
+        <div class="col-md-4 mb-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">{{ product.name }}</h5>
+              <p class="card-text">Quantity: {{ product.quantity }}</p>
+              <p class="card-text">Comments: {{ product.comments }}</p>
+              <!-- Add more product details as needed -->
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
